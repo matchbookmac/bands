@@ -10,4 +10,5 @@ gem 'rake'
 group :test do
   gem 'capybara', require: 'capybara/rspec'
   gem 'rspec'
+  gem 'shoulda-matchers'
 end
