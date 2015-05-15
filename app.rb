@@ -11,12 +11,6 @@ get '/' do
   erb :index
 end
 
-get '/errors/:class/:id/:path' do
-  object_class = params['class']
-binding.pry
-  erb :errors
-end
-
 get '/bands' do
   erb :bands
 end
@@ -33,7 +27,6 @@ post '/bands/new' do
     @object_with_errors = band
     @path = '/bands/new'
     erb :errors
-    # redirect to "/errors/#{@object_with_errors.class}/#{@object_with_errors.id}/#{@path}"
   end
 end
 
@@ -83,6 +76,30 @@ post '/venues/new' do
     @object_with_errors = venue
     @path = '/venues/new'
     erb :errors
-    # redirect to "/errors/#{@object_with_errors}/#{@object_with_errors.id}/#{@path}"
   end
+end
+
+get '/venues/:id' do
+  @venue = Venue.find(params['id'])
+  @bands = @venue.bands
+  @other_bands = @venue.unplayed_bands
+  erb :venue
+end
+
+patch '/venues/:id/add/band' do
+  @venue = Venue.find(params['id'])
+  added_band_ids = params['band_id']
+  added_band_ids.each do |band_id|
+    band = Band.find(band_id)
+    @venue.bands.push(band)
+  end
+  @venues = @venue.bands
+  redirect to "/venues/#{params['id']}"
+end
+
+patch '/venues/:id/update/name' do
+  @venue = Venue.find(params['id'])
+  @venue.update(name: params['new_venue_name'])
+  @venues = @venue.bands
+  redirect to "/venues/#{params['id']}"
 end

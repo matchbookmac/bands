@@ -18,4 +18,14 @@ describe Venue do
     venue = Venue.create name: 'kingston mines', location: 'chicago, il'
     expect(venue.location).to eq 'Chicago, IL'
   end
+
+  describe '#unplayed_bands' do
+    it 'returns an array of unplayed_bands' do
+      band_0 = Band.create name: 'Red Fang'
+      band_1 = Band.create name: 'Muddy Waters'
+      venue = Venue.create name: 'Slabtown'
+      venue.bands.push(band_0)
+      expect(venue.unplayed_bands).to eq([band_1])
+    end
+  end
 end

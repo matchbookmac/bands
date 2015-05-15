@@ -1,0 +1,49 @@
+<h1><%= @venue.name %></h1>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <% if @bands.any? %>
+      <p class="lead">Bands that have played this venue:</p>
+      <ul>
+        <% @bands.each do |band| %>
+          <li>
+            <a href="/bands/<%= band.id %>"><%= band.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="lead text-center">
+        Sorry, no bands have played this venue. Try adding some below!
+      </p>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <% if @all_bands.any? %>
+      <form action="/venues/<%= @venue.id %>/add/band" method="post">
+        <p>Select the Band(s) for this venue:</p>
+        <input type="hidden" name="_method" value="patch">
+        <ul>
+          <% @other_bands.each do |band| %>
+            <div class="checkbox">
+              <input type="checkbox" name="band_id[]" id="<%= band.id %>" value="<%= band.id %>"><%= band.name %></input>
+            </div>
+          <% end %>
+        </ul>
+        <button id="add_bands" class="btn btn-success" type="submit" name="add_bands">Save</button>
+      </form>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <form action="/venues/<%= @venue.id %>/update/name" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class="form-group">
+        <p>Update this venue's name</p>
+        <input id="new_venue_name" name="new_venue_name" type="text" autofocus>
+      </div>
+      <button class="btn btn-warning" type="submit" id="update_venue" name="update_venue">Update</button>
+    </form>
+  </div>
+</div>

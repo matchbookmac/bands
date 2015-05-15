@@ -14,4 +14,23 @@ describe 'the Venue path', type: :feature do
     click_on 'add_venue'
     expect(page).to have_content 'Kingston Mines, Chicago, IL'
   end
+
+  describe 'Update venues' do
+    it 'will add bands to a venue' do
+      band = Band.create name: 'red fang'
+      venue = Venue.create name: 'kingston mines', location: 'chicago, il'
+      visit "/venues/#{venue.id}"
+      check band.id
+      click_on 'add_bands'
+      expect(page).to have_content 'Red Fang'
+    end
+
+    it 'will update a venue\'s name' do
+      venue = Venue.create name: 'kingston mines'
+      visit "/venues/#{venue.id}"
+      fill_in 'new_venue_name', with: 'Slabtown'
+      click_on 'update_venue'
+      expect(page).to have_content 'Slabtown'
+    end
+  end
 end
