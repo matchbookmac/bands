@@ -1,0 +1,37 @@
+<h1><%= @band.name %></h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% if @venues.any? %>
+      <ul>
+        <% @venues.each do |venue| %>
+          <li>
+            <a href="/venues/<%= venue.id %>"><%= venue.name %>, <%= venue.location %></a>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="lead text-center">
+        Sorry, this band hasn't played any venues. Try adding one below!
+      </p>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <% if @all_venues.any? %>
+      <form action="/bands/<%= @band.id %>/add/venue" method="post">
+        <p>Select the Venue(s) for this band:</p>
+        <input type="hidden" name="_method" value="patch">
+        <ul>
+          <% @other_venues.each do |venue| %>
+            <div class="checkbox">
+              <input type="checkbox" name="venue_id[]" id="<%= venue.id %>" value="<%= venue.id %>"><%= venue.name %>, <%= venue.location %></input>
+            </div>
+          <% end %>
+        </ul>
+        <button id="add_venues" class="btn btn-success" type="submit" name="add_venues">Save</button>
+      </form>
+    <% end %>
+  </div>
+</div>

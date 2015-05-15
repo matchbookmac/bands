@@ -3,6 +3,14 @@ class Band < ActiveRecord::Base
   validates :name, {presence: true, uniqueness: {case_sensitive: false}}
   before_validation :titleize_name
 
+  def unplayed_venues
+    unplayed_venues = []
+    Venue.all.each do |venue|
+      unplayed_venues << venue if !(venue.bands.include?(self))
+    end
+    unplayed_venues
+  end
+
   private
   def titleize_name
     name = Maybe(self.name).downcase

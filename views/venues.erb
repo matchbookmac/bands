@@ -7,9 +7,9 @@
 <br>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <% if @venues.any? %>
+    <% if @all_venues.any? %>
       <ul>
-        <% @venues.each do |venue| %>
+        <% @all_venues.each do |venue| %>
           <li>
             <a href="/venues/<%= venue.id %>"><%= venue.name %>, <%= venue.location %></a>
           </li>

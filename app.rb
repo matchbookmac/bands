@@ -4,8 +4,8 @@ Bundler.require :default
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file}
 
 before do
-  @bands = Band.all
-  @venues = Venue.all
+  @all_bands = Band.all
+  @all_venues = Venue.all
 end
 get '/' do
   erb :index
@@ -37,6 +37,23 @@ post '/bands/new' do
   end
 end
 
+get '/bands/:id' do
+  @band = Band.find(params['id'])
+  @venues = @band.venues
+  @other_venues = @band.unplayed_venues
+  erb :band
+end
+
+patch '/bands/:id/add/venue' do
+  @band = Band.find(params['id'])
+  added_venue_ids = params['venue_id']
+  added_venue_ids.each do |venue_id|
+    venue = Venue.find(venue_id)
+    @band.venues.push(venue)
+  end
+  @venues = @band.venues
+  redirect to "/bands/#{params['id']}"
+end
 get '/venues' do
   erb :venues
 end

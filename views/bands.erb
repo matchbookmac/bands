@@ -7,9 +7,9 @@
 <br>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <% if @bands.any? %>
+    <% if @all_bands.any? %>
       <ul>
-        <% @bands.each do |band| %>
+        <% @all_bands.each do |band| %>
           <li>
             <a href="/bands/<%= band.id %>"><%= band.name %></a>
           </li>
