@@ -9,6 +9,5 @@ class Venue < ActiveRecord::Base
     self.name = Maybe(name).titleize
     self.location = Maybe(location).downcase
     self.location = Maybe(location).titleize
-# binding.pry
   end
 end
