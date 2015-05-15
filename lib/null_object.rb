@@ -3,11 +3,11 @@ class NullObject
     self
   end
 
-  def downcase
+  def titleize
     nil
   end
 
-  def titleize
+  def upcase
     nil
   end
 end

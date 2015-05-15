@@ -5,6 +5,8 @@ describe Venue do
 
   it { should validate_presence_of :name}
 
+  it { should validate_presence_of :location}
+
   it { should validate_uniqueness_of :name}
 
   it 'titleizes the name of the venue' do
@@ -13,7 +15,7 @@ describe Venue do
   end
 
   it 'titleizes the location of the venue' do
-    venue = Venue.create name: 'kingston mines', location: 'chicago'
-    expect(venue.location).to eq 'Chicago'
+    venue = Venue.create name: 'kingston mines', location: 'chicago, il'
+    expect(venue.location).to eq 'Chicago, IL'
   end
 end

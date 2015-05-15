@@ -8,17 +8,17 @@ describe NullObject do
     end
   end
 
-  describe '#downcase' do
-    it 'will return nil' do
-      null = NullObject.new
-      expect(null.downcase).to eq nil
-    end
-  end
-
   describe '#titleize' do
     it 'will return nil' do
       null = NullObject.new
       expect(null.titleize).to eq nil
+    end
+  end
+
+  describe '#upcase' do
+    it 'will return nil' do
+      null = NullObject.new
+      expect(null.upcase).to eq nil
     end
   end
 end

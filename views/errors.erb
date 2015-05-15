@@ -1,0 +1,16 @@
+<div class="errors">
+  <div class="col-md-8 col-md-offset-2">
+    <h1 class="bg-danger errors-header">Yo, chill</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ul>
+          <% @object_with_errors.errors().full_messages().each() do |message| %>
+            <li><p class="lead bg-danger errors-item"><%= message %></p></li>
+          <% end %>
+        </ul>
+
+        <h5><a href="<%= @path %>" class="error-path">Return to the previous page to try again, or GET BACK IN LINE</a></h5>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,6 @@ describe 'the Venue path', type: :feature do
     fill_in 'venue_name', with: 'Kingston Mines'
     fill_in 'venue_location', with: 'Chicago, IL'
     click_on 'add_venue'
-    expect(page).to have_content 'Kingston Mines, Chicago, Il'
+    expect(page).to have_content 'Kingston Mines, Chicago, IL'
   end
 end

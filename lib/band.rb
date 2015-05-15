@@ -5,7 +5,7 @@ class Band < ActiveRecord::Base
 
   private
   def titleize_name
-    self.name = Maybe(name).downcase
-    self.name = Maybe(name).titleize
+    name = Maybe(self.name).downcase
+    self.name = name.titleize
   end
 end

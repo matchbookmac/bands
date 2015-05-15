@@ -8,3 +8,29 @@ h1 {
 .stretch {
   width: 100%;
 }
+
+.errors {
+  background-image: url('img/bouncer.png');
+  background-position: center;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.errors-header {
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+.errors-item {
+  border-radius: 5px;
+  padding: 0.25em 1em 0.25em 1em;
+}
+
+.error-path {
+  color: #fff;
+}
