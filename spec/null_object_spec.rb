@@ -7,4 +7,18 @@ describe NullObject do
       expect(null.method_missing).to eq null
     end
   end
+
+  describe '#downcase' do
+    it 'will return nil' do
+      null = NullObject.new
+      expect(null.downcase).to eq nil
+    end
+  end
+
+  describe '#titleize' do
+    it 'will return nil' do
+      null = NullObject.new
+      expect(null.titleize).to eq nil
+    end
+  end
 end
