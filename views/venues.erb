@@ -1,11 +1,17 @@
 <h1>Venues</h1>
 <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <a id="add_new_venue" href="/venues/new" class="btn btn-success stretch" role="button">Add a New Venue</a>
+  </div>
+</div>
+<br>
+<div class="row">
   <div class="col-md-8 col-md-offset-2">
     <% if @venues.any? %>
       <ul>
         <% @venues.each do |venue| %>
           <li>
-            <a href="/venues/<%= venue.id %>"><%= venue.name %></a>
+            <a href="/venues/<%= venue.id %>"><%= venue.name %>, <%= venue.location %></a>
           </li>
         <% end %>
       </ul>
