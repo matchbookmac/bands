@@ -6,9 +6,8 @@ class Band < ActiveRecord::Base
   before_validation :titleize_name
 
   private
-
   def titleize_name
-    self.name = name.downcase.titleize
-# binding.pry
+    self.name = Maybe(name).downcase
+    self.name = Maybe(name).titleize
   end
 end
