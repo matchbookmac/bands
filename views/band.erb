@@ -1,8 +1,9 @@
 <h1><%= @band.name %></h1>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-4 col-md-offset-4">
     <% if @venues.any? %>
+      <p class="lead">Venues this band has played:</p>
       <ul>
         <% @venues.each do |venue| %>
           <li>
@@ -17,6 +18,7 @@
     <% end %>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="col-md-4">
     <% if @all_venues.any? %>
@@ -33,5 +35,24 @@
         <button id="add_venues" class="btn btn-success" type="submit" name="add_venues">Save</button>
       </form>
     <% end %>
+  </div>
+  <div class="col-md-4">
+    <form action="/bands/<%= @band.id %>/update/name" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class="form-group">
+        <p>Update this band's name</p>
+        <input id="new_band_name" name="new_band_name" type="text" autofocus>
+      </div>
+      <button class="btn btn-warning" type="submit" id="update_band" name="update_band">Update</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <form action="/bands/<%= @band.id %>/delete" method="post">
+      <div class="form-group">
+        <p class="text-center">Delete this Band:</p>
+        <input type="hidden" name="_method" value="delete">
+      </div>
+      <button class="btn btn-danger stretch" type="submit" id="delete_band" name="delete_band">Delete</button>
+    </form>
   </div>
 </div>

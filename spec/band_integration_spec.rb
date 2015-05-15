@@ -32,5 +32,21 @@ describe 'the Band path', type: :feature do
       click_on 'add_venues'
       expect(page).to have_content 'Kingston Mines'
     end
+
+    it 'will update a band\'s name' do
+      band = Band.create name: 'red fang'
+      visit "/bands/#{band.id}"
+      fill_in 'new_band_name', with: 'Blue Fang'
+      click_on 'update_band'
+      expect(page).to have_content 'Blue Fang'
+    end
+
+    it 'will delete a band' do
+      band_0 = Band.create name: 'red fang'
+      band_1 = Band.create name: 'Muddy Waters'
+      visit "/bands/#{band_0.id}"
+      click_on 'delete_band'
+      expect(page).to_not have_content 'Red Fang'
+    end
   end
 end
