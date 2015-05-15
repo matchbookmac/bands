@@ -11,4 +11,15 @@ describe Band do
     band = Band.create name: 'red fang'
     expect(band.name).to eq 'Red Fang'
   end
+
+  describe 'Maybe' do
+    it 'returns NullObject when the object passed is nill' do
+      null_class = Maybe(nil)
+      expect(null_class.class).to eq(NullObject.new.class)
+    end
+
+    it 'returns the object if the object is not nil' do
+
+    end
+  end
 end
