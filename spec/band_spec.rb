@@ -19,7 +19,8 @@ describe Band do
     end
 
     it 'returns the object if the object is not nil' do
-
+      band = Band.create name: 'red fang'
+      expect(Maybe(band)).to eq band
     end
   end
 end
