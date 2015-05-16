@@ -19,6 +19,16 @@ h1 {
   margin-bottom: 1em;
 }
 
+.btn-nav {
+  background: #3F3F3F;
+  color: #A4A4A4;
+}
+
+.btn-nav:hover {
+  background: #A4A4A4;
+  color: #0E0E0E;
+}
+
 html {
   height: 100%;
 }
