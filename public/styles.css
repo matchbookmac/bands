@@ -12,6 +12,13 @@ h1 {
   margin-bottom: 1em;
 }
 
+.header {
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 1em;
+}
+
 html {
   height: 100%;
 }
