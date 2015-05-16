@@ -43,19 +43,21 @@ html {
   left:0;
   right:0;
   overflow:hidden;
-  z-index:-1;
+  /*z-index:-1;*/
 }
 
 .errors-header {
   padding-top: 20px;
   border-radius: 5px;
+  color: black;
 }
 
 .errors-item {
   border-radius: 5px;
   padding: 0.25em 1em 0.25em 1em;
+  color: black;
 }
 
 .error-path {
-  color: #fff;
+  color: red;
 }
