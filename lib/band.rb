@@ -6,7 +6,8 @@ class Band < ActiveRecord::Base
   def unplayed_venues
     unplayed_venues = []
     Venue.all.each do |venue|
-      unplayed_venues << venue if !(venue.bands.include?(self))
+binding.pry      
+      unplayed_venues << venue unless venue.bands.include?(self)
     end
     unplayed_venues
   end
