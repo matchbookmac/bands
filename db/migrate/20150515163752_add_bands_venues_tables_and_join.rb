@@ -9,11 +9,11 @@ class AddBandsVenuesTablesAndJoin < ActiveRecord::Migration
     create_table :venues do |t|
       t.column :name, :string
       t.column :location, :string
-      
+
       t.timestamps()
     end
 
-    create_table :bands_venues do |t|
+    create_table :bands_venues, id: false do |t|
       t.integer :band_id
       t.integer :venue_id
     end

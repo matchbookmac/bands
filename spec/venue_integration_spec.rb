@@ -26,7 +26,7 @@ describe 'the Venue path', type: :feature do
     end
 
     it 'will update a venue\'s name' do
-      venue = Venue.create name: 'kingston mines'
+      venue = Venue.create name: 'kingston mines', location: 'chicago, il'
       visit "/venues/#{venue.id}"
       fill_in 'new_venue_name', with: 'Slabtown'
       click_on 'update_venue'

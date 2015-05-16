@@ -15,7 +15,6 @@ describe Band do
   describe '#unplayed_venues' do
     it 'returns an array of unplayed_venues' do
       venue_0 = Venue.create name: 'Slabtown', location: 'Portland, OR'
-binding.pry      
       venue_1 = Venue.create name: 'kingston mines', location: 'chicago, il'
       band = Band.create name: 'red fang'
       band.venues.push(venue_0)
