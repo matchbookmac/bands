@@ -9,5 +9,21 @@
     <div class="container">
       <%= yield %>
     </div>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <div class="col-md-3">
+          <a href="/bands" class="btn btn-primary stretch" role="button">View Bands</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/bands/new" class="btn btn-primary stretch" role="button">Add Band</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/venues" class="btn btn-primary stretch" role="button">View Venues</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/venues/new" class="btn btn-primary stretch" role="button">Add Venue</a>
+        </div>
+      </div>
+    </nav>
   </body>
 </html>
