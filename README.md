@@ -12,7 +12,7 @@ GNU General Public License, version 3 (see below). Copyright (c) 2015 Ian C. Mac
 
 **Bands**
 
-App for tracking which bands have played what venues and where
+App for tracking which bands have played what venues and where.
 
 ### Author(s)
 
@@ -24,15 +24,54 @@ This app was written in `ruby '2.0.0'`.
 
 Clone this repo with
 ```console
-> git clone https://github.com/matchbookmac/<REPO NAME>.git
+> git clone https://github.com/matchbookmac/bands.git
 ```
 
-Install and run:
+Install gems:
 
 ```console
 > bundle install
+```
+
+Create database
+```console
+> rake db:create
+> rake db:migrate
+> rake db:test:prepare
+```
+
+Start App:
+```console
 > ruby app.rb
 ```
+
+### Database Schema
+
+List of relations
+
+   Name     | Type  
+ ---------- | -------
+ bands      | table
+ venues     | table
+
+bands table
+
+id  | name
+----|---------
+int | varchar
+
+venues table
+
+id  | name
+----|---------
+int | varchar
+
+bands_venues join table
+
+band_id | venue_id
+--------|---------
+int     | int
+
 
 ### License ###
 Copyright  (C)  2015  Ian C. MacDonald
