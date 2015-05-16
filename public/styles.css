@@ -1,8 +1,26 @@
+body {
+  background-image: url('img/lasers.png');
+  background-position: center;
+  color: #fff;
+  height: 100%;
+}
+
 h1 {
   border-bottom: 1px solid #eee;
   text-align: center;
   padding-bottom: 20px;
   margin-bottom: 1em;
+}
+
+html {
+  height: 100%;
+}
+
+.container {
+  background-color: rgba(0,0,0,0.6);
+  min-height: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .stretch {
