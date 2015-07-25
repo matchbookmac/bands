@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'sinatra-contrib', require: 'sinatra/reloader'
 gem 'sinatra-activerecord'
 gem 'rake'
+gem 'bigdecimal', '~> 1.1'
 
 group :test do
   gem 'capybara', require: 'capybara/rspec'
